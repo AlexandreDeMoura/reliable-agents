@@ -54,8 +54,12 @@ A short written list of the most important Opinions an agent must hold, used bot
 _Avoid_: product spec, rubric
 
 **Behavior eval**:
-A check of one Trajectory against one Behavior from the Behavior spec, without needing Ground truth.
-_Avoid_: process eval
+A check of one Trajectory against one Behavior from the Behavior spec, without needing Ground truth. It gives one result per Trajectory: not applicable, held, or violated; a single break anywhere in the Trajectory makes it violated.
+_Avoid_: process eval, pass/fail
+
+**Judge**:
+A model that performs Behavior evals on Trajectories and cites evidence from them for each result.
+_Avoid_: grader, evaluator
 
 **Fork**:
 A copy of a Trajectory taken at a chosen point, from which you can question the agent about its decision or change its Context and let it continue.
@@ -68,3 +72,13 @@ _Avoid_: mock agent, dry run
 **Signal**:
 Evidence about whether the agent is behaving as intended.
 _Avoid_: feedback, metric
+
+### Adopting the agent
+
+**Steering burden**:
+The skill a user needs to get good work from an agent: managing its Context and knowing when to use it. Most users can't carry it, so a good agent removes it.
+_Avoid_: competency gap
+
+**Opinion gap**:
+The lack of shared Opinions when each user shapes the agent their own way, so the same work comes out differently from user to user.
+_Avoid_: process gap
