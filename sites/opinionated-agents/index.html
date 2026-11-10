@@ -612,6 +612,138 @@ dialog.gloss::backdrop { background: rgba(10, 16, 12, 0.45); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .circled path { stroke-dashoffset: 0; }
 }
+
+/* ---------- case study: chapters 12 to 18 ----------
+   Same ledger, a second book. Sheets badged .real show the pilot's own records;
+   dashed badges are proposals. */
+.toc li.toc-part { margin-top: 14px; }
+.toc li.toc-part a {
+  display: block; padding: 6px 8px 4px 12px;
+  font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pencil);
+}
+.part {
+  margin-top: 72px; padding-block: 88px 8px; border-top: 3px double var(--rule-strong);
+  display: grid; gap: 20px; scroll-margin-top: 16px;
+}
+.part h2 { font-size: var(--step-4); font-weight: 760; letter-spacing: -0.025em; max-width: 14ch; }
+.part .lede { font-size: var(--step-1); line-height: 1.5; max-width: 34em; color: var(--ink-2); }
+.part-key { display: grid; gap: 8px; font-size: 0.92rem; color: var(--ink-2); max-width: 84ch; }
+.part-key .badge { margin-right: 8px; }
+.badge.real { border-style: solid; border-color: var(--ink-2); color: var(--ink); }
+.pill.mid { background: var(--hl); color: var(--ink); }
+
+/* chapter 12: one note through the Harness */
+.phone {
+  border: 1px solid var(--rule-strong); border-radius: 16px; background: var(--paper);
+  padding: 14px 14px 20px; display: grid; gap: 14px; align-content: start; min-height: 250px;
+}
+.phone-head { display: flex; justify-content: space-between; gap: 8px; font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pencil); }
+.wa { position: relative; max-width: 90%; padding: 8px 12px; border: 1px solid var(--rule-strong); font-size: 0.92rem; line-height: 1.45; }
+.wa.out { justify-self: end; background: var(--blue-soft); border-radius: 12px 12px 3px 12px; }
+.wa.in { justify-self: start; background: var(--sheet); border-radius: 12px 12px 12px 3px; }
+.wa .meta { display: block; margin-top: 3px; text-align: right; font-family: var(--f-mono); font-size: 0.66rem; color: var(--pencil); }
+.wa .react { position: absolute; left: 10px; bottom: -12px; padding: 0 6px; border: 1px solid var(--rule-strong); border-radius: 999px; background: var(--sheet); font-size: 0.74rem; line-height: 1.5; }
+.wa-wait { justify-self: center; font-family: var(--f-mono); font-size: 0.72rem; color: var(--pencil); }
+.info ul { margin: 0; padding-left: 1.15em; display: grid; gap: 5px; }
+.info .path { border-top: 0; padding-top: 0; }
+.ctxblock {
+  margin: 0; padding: 10px 12px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--sheet);
+  font-family: var(--f-mono); font-size: 0.74rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.words { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 20px; font-size: 0.94rem; max-width: 76ch; }
+.words > span { padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.words .hd { font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pencil); }
+
+/* chapter 13: where an Opinion lives */
+.ops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.op { display: grid; gap: 10px; align-content: start; padding: 14px; border: 1px solid var(--rule-strong); border-radius: var(--r); background: var(--paper); }
+.op .n { font-family: var(--f-mono); font-size: 0.72rem; color: var(--pencil); }
+.op .stmt { font-family: var(--f-display); font-weight: 600; font-size: 1.04rem; line-height: 1.35; }
+.home { padding: 2px 9px; border-radius: 999px; font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+.home.harness { background: var(--ink); color: var(--sheet); }
+.home.context { background: var(--hl); color: var(--ink); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.paper .said { font-size: 0.92rem; line-height: 1.45; padding: 8px 12px; border: 1px solid var(--rule-strong); border-radius: 12px 12px 3px 12px; background: var(--blue-soft); }
+
+/* chapter 14: the scripted day */
+.day { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+.dcard {
+  display: grid; gap: 5px; justify-items: center; align-content: start; min-height: 64px; padding: 7px 2px 8px;
+  border: 1px solid var(--rule); border-radius: var(--r); background: var(--paper); cursor: pointer;
+}
+.dcard:hover { border-color: var(--blue); }
+.dcard[aria-pressed="true"] { border-color: var(--blue); background: var(--sheet); box-shadow: 0 0 0 3px var(--blue-soft); }
+.dcard .dn { font-family: var(--f-mono); font-size: 0.66rem; line-height: 1; color: var(--pencil); }
+.bm { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.bm.ok { background: var(--blue); }
+.bm.bad { background: var(--red); }
+.bm.na { border: 1px dashed var(--pencil); }
+.bm.none { border: 1px dotted var(--rule-strong); background: repeating-linear-gradient(135deg, transparent 0 3px, var(--rule) 3px 4px); }
+.legend .bm, .legend .tk { margin-right: 6px; vertical-align: -2px; }
+
+/* chapter 15: the thread as a directory */
+.dir { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.pcell {
+  display: grid; gap: 3px; align-content: start; min-height: 64px; padding: 7px 8px; text-align: left; cursor: pointer;
+  border: 1px dashed var(--rule-strong); border-radius: var(--r); background: transparent; color: var(--pencil);
+  font-size: 0.78rem; line-height: 1.25; overflow-wrap: anywhere;
+}
+.pcell:hover, .pcell[aria-pressed="true"] { border-color: var(--blue); }
+.pcell.listed { border-style: solid; background: var(--paper); color: var(--ink); }
+.pcell.borrowed { border-color: var(--red); background: var(--red-soft); }
+.pcell .sc { font-family: var(--f-mono); font-size: 0.68rem; color: var(--pencil); }
+.pcell.listed .sc { color: var(--ink-2); }
+.pcell .bw { font-family: var(--f-mono); font-size: 0.64rem; color: var(--pencil); }
+.pcell.borrowed .bw { color: var(--red); }
+
+/* chapter 16: choosing the spec */
+.cand-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.choice .why { display: block; margin-top: 5px; font-size: 0.84rem; color: var(--ink-2); }
+.choice.in { border-color: var(--blue); background: var(--blue-soft); box-shadow: none; }
+.choice.out.wrong { border-color: var(--red); background: var(--red-soft); box-shadow: none; }
+.choice.in.wrong { border-style: dashed; }
+.choice[aria-disabled="true"] { cursor: default; }
+.specs { display: grid; gap: 10px; }
+.specs .spec { max-width: none; }
+.specs .spec .stmt { font-size: 1.02rem; }
+.jres .gap { border-left: 3px solid var(--red); padding-left: 10px; }
+#w-spec .btn:disabled { opacity: 0.45; cursor: default; }
+#day-info .kv { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+#day-info .kv dd + dt { margin-top: 8px; }
+.steps6 a { color: var(--blue); text-underline-offset: 2px; }
+
+/* chapter 17: what a Fork would take */
+.finds { display: grid; gap: 10px; }
+.needs { display: grid; grid-template-columns: 7em minmax(0, 1fr) minmax(0, 1fr); column-gap: 18px; font-size: 0.92rem; }
+.needs > * { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.needs .k { font-family: var(--f-display); font-weight: 650; }
+.needs .eyebrow { display: block; margin-bottom: 2px; }
+.needs > :nth-last-child(-n+3) { border-bottom: 0; }
+
+/* chapter 18: who notices, and the ladder of work */
+.watch { display: grid; gap: 6px; }
+.wrow {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline;
+  padding: 8px 10px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--sheet); font-size: 0.9rem;
+}
+.wrow .wn { font-weight: 600; }
+.wrow .ww { grid-column: 1 / -1; font-size: 0.84rem; line-height: 1.4; color: var(--ink-2); }
+.wrow.prop { border: 1px dashed var(--blue); }
+.rung.live { border-style: solid; color: var(--ink); }
+.rung .sub { font-size: 0.86rem; line-height: 1.4; }
+.rung.on .sub, .rung.live .sub { color: var(--ink-2); }
+
+@media (max-width: 720px) {
+  .ops, .cand-list { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .part { margin-top: 48px; padding-top: 64px; }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .dir { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .needs { grid-template-columns: minmax(0, 1fr); }
+  .needs > * { border-bottom: 0; padding: 3px 0; }
+  .needs .k { border-top: 1px solid var(--rule); margin-top: 8px; padding-top: 12px; }
+}
 </style>
 </head>
 <body>
@@ -633,6 +765,14 @@ dialog.gloss::backdrop { background: rgba(10, 16, 12, 0.45); }
       <li><a href="#ch9"><span class="n">09</span>Simulations</a></li>
       <li><a href="#ch10"><span class="n">10</span>Closing the loop, earning trust</a></li>
       <li><a href="#ch11"><span class="n">11</span>Won't Opinions block a better way?</a></li>
+      <li class="toc-part"><a href="#case">Case study · the pilot</a></li>
+      <li><a href="#ch12"><span class="n">12</span>A register kept over WhatsApp</a></li>
+      <li><a href="#ch13"><span class="n">13</span>Who enforces each Opinion</a></li>
+      <li><a href="#ch14"><span class="n">14</span>What a scripted day can't show</a></li>
+      <li><a href="#ch15"><span class="n">15</span>What shaped the skipped search</a></li>
+      <li><a href="#ch16"><span class="n">16</span>A Behavior spec for the entry agent</a></li>
+      <li><a href="#ch17"><span class="n">17</span>Simulations and Forks for the pilot</a></li>
+      <li><a href="#ch18"><span class="n">18</span>Signal and trust in production</a></li>
     </ol>
     <div class="rail-foot">
       <button class="btn" type="button" data-open-glossary>Glossary</button>
@@ -1245,6 +1385,422 @@ dialog.gloss::backdrop { background: rgba(10, 16, 12, 0.45); }
         <a class="node dark" href="#ch10">Trust</a>
       </div>
       <p class="colophon">Built for the Reliable Agents Lab. The ideas come from Basis's work on agents for accounting firms; every number in the widgets is made up to show the idea.</p>
+    </section>
+
+    <!-- ========== CASE STUDY: the dmp-courtage pilot ========== -->
+    <section class="part" id="case" aria-labelledby="case-h">
+      <span class="eyebrow">Case study</span>
+      <h2 id="case-h">A prospect register kept over WhatsApp</h2>
+      <p class="lede">The accounting firm in the chapters above doesn't exist. The pilot in the chapters below does: two agents built for an energy sales agency, played through one scripted day on 9 November 2026, before four weeks of real use. The same ideas come back in the same order, on the pilot's own records.</p>
+      <div class="part-key">
+        <span><span class="badge real">Pilot records</span>What was written down during the pilot. Messages and register values are translated from French.</span>
+        <span><span class="badge">Proposal</span>A next step that nobody has built yet.</span>
+      </div>
+    </section>
+
+    <!-- ========== CH 12 ========== -->
+    <section class="chapter" id="ch12" data-title="A register kept over WhatsApp">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 12 · Case study</span>
+        <h2>The pilot: a register kept over WhatsApp</h2>
+      </div>
+      <div class="prose">
+        <p>DMP Courtage sells electricity and gas contracts to small businesses: bakeries, garages, restaurants. Paul, its main sales rep, spends most of his week going door to door. It takes ten to twenty visits to sign one contract, so most of the value sits in visits that ended without a signature: an owner who was out, a contract that runs until March, someone who wants an offer next week.</p>
+        <p>Before the pilot, the agency had no <span class="term" data-term="Process" tabindex="0">Process</span> for those visits. It kept no <span class="term acct" data-term="Prospect register" tabindex="0">prospect register</span>. Ten to fifteen prospects waited in the calendar on Paul's phone, and he followed up from memory.</p>
+        <p>The pilot gives the agency that Process: a register, one way to feed it, and a daily list of who to see again. After a visit, Paul sends a <span class="term acct" data-term="Visit note" tabindex="0">visit note</span> to a WhatsApp number: typed, dictated, or a photo of an electricity bill. An entry agent files it in the register and answers in one line. Every working day at 8:00, a briefing agent sends him the <span class="term acct" data-term="Follow-up" tabindex="0">follow-ups</span> that are due.</p>
+        <p>Look at what Paul doesn't do. He never opens the agent, chooses its guidance or decides what it remembers. He writes the way he would to a colleague, in an app he opens every day. The <span class="term" data-term="Steering burden" tabindex="0">Steering burden</span> hasn't vanished. The builder carries it once, for every user, in the <span class="term" data-term="Harness" tabindex="0">Harness</span>: everything between Paul's message and the row in the register.</p>
+        <p>Follow one real note through it.</p>
+      </div>
+
+      <div class="sheet" id="w-note">
+        <div class="sheet-head"><span class="sheet-title">One visit note, end to end</span><span class="badge real">Pilot records · 9 Nov, 11:22</span></div>
+        <div class="sheet-body">
+          <div class="controls" style="align-items:flex-end">
+            <fieldset class="seg"><legend>Stage</legend><div class="opts" id="note-stages"></div></fieldset>
+            <button class="btn primary" type="button" id="note-next">Next stage</button>
+          </div>
+          <div class="two">
+            <div class="phone" id="note-phone" aria-live="polite"></div>
+            <div class="info" id="note-info" aria-live="polite"></div>
+          </div>
+          <p class="sheet-note" id="note-sum"></p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>The pilot's own documents were written in French, before this guide, and they use other words for all of this. The chapters below use the guide's terms.</p>
+      </div>
+
+      <div class="sheet">
+        <div class="sheet-head"><span class="sheet-title">The pilot's words, in this guide's terms</span></div>
+        <div class="sheet-body">
+          <div class="words">
+            <span class="hd">In the pilot's documents</span><span class="hd">In this guide</span>
+            <span><i lang="fr">run</i>: one <span class="term acct" data-term="Batch" tabindex="0">batch</span> of messages handled by the agent</span>
+            <span>A <span class="term" data-term="Trajectory" tabindex="0">Trajectory</span>. One thread holds all the Trajectories of a day, and each one reads those before it.</span>
+            <span><i lang="fr">consignes</i>, tool descriptions, what a tool returns</span>
+            <span><span class="term" data-term="Context" tabindex="0">Context</span></span>
+            <span><i lang="fr">règle</i>, <i lang="fr">choix</i></span>
+            <span><span class="term" data-term="Opinion" tabindex="0">Opinion</span></span>
+            <span>The n8n workflows and Auxilia</span>
+            <span><span class="term" data-term="Harness" tabindex="0">Harness</span></span>
+            <span><i lang="fr">scénario</i>, <i lang="fr">plan de test</i>, <i lang="fr">attendu</i></span>
+            <span><span class="term" data-term="Outcome eval" tabindex="0">Outcome evals</span> and their <span class="term" data-term="Ground truth" tabindex="0">Ground truth</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="check" data-quiz="q12"></div>
+    </section>
+
+    <!-- ========== CH 13 ========== -->
+    <section class="chapter" id="ch13" data-title="Who enforces each Opinion">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 13 · Case study</span>
+        <h2>Who enforces each Opinion?</h2>
+      </div>
+      <div class="prose">
+        <p>The pilot is full of <span class="term" data-term="Opinion" tabindex="0">Opinions</span>, though its documents never use the word. Search the register before creating a prospect. Rewrite the summary in one or two sentences at every note. When Paul gives the end of a contract and no follow-up date, follow up one month before the end. Each is one chosen way, written down, where several would have worked.</p>
+        <p>Its strongest design choice is about where an Opinion lives. Some are enforced by the <span class="term" data-term="Harness" tabindex="0">Harness</span>: code inside a tool does the thing, the same way on every <span class="term" data-term="Trajectory" tabindex="0">Trajectory</span>, whatever the model decides. Others are delivered as <span class="term" data-term="Context" tabindex="0">Context</span>: the agent reads them and usually follows them. The first kind holds by construction. The second kind shows up as a <span class="term" data-term="Behavior" tabindex="0">Behavior</span>, or doesn't.</p>
+        <p>Here are six Opinions from the pilot. For each, choose where it should live. Then see what the pilot did and what 9 November showed.</p>
+      </div>
+
+      <div class="sheet" id="w-home">
+        <div class="sheet-head"><span class="sheet-title">Harness or Context?</span><span class="badge real">Pilot records</span></div>
+        <div class="sheet-body">
+          <p class="score" id="home-score" aria-live="polite"></p>
+          <div class="ops" id="home-ops"></div>
+          <div class="result" id="home-sum" aria-live="polite" hidden></div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>Chapter 3 said that reliable means consistent. The scripted day has a clean instance of the opposite. Twice in ten minutes, Paul named a business that wasn't in the register, and both times the search came back with look-alikes.</p>
+      </div>
+
+      <div class="sheet" id="w-pair">
+        <div class="sheet-head"><span class="sheet-title">Same Situation, ten minutes apart</span><span class="badge real">Pilot records · 9 Nov</span></div>
+        <div class="sheet-body">
+          <div class="pair">
+            <div class="paper">
+              <div class="who"><b>11:12</b><span class="pill na">asked first</span></div>
+              <p class="said">Bar Tabac Le Balto, place de la Gare in Garges, owner absent</p>
+              <ol class="path">
+                <li>Searched the register. Closest row: Bar Le Central, score 0.46</li>
+                <li>Wrote nothing</li>
+                <li>Asked Paul: “I can't find a Balto in the register. Shall I create it as a new prospect?”</li>
+              </ol>
+            </div>
+            <div class="paper">
+              <div class="who"><b>11:22</b><span class="pill na">created</span></div>
+              <p class="said">Le Fournil de Sarcelles, bakery on rue du Chardon, Mr Diallo, 06 33 44 55 66. With EDF until June 2027</p>
+              <ol class="path">
+                <li>Searched the register. Closest row: Fleurs &amp; Co, score 0.50</li>
+                <li>Created the row without asking</li>
+                <li>Answered: “Recorded: Le Fournil de Sarcelles.”</li>
+              </ol>
+            </div>
+          </div>
+          <div class="opinion-card">
+            <span class="eyebrow">Opinion chosen on 10 November</span>
+            When no row is the business Paul means, whatever the scores, create the prospect without asking. Ask only when two rows could be that business.
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>Neither answer was wrong. The Context said what to do below a score of 0.35, and what to do when two rows look alike. It said nothing about a score above 0.35 with no row that fits. Nobody had chosen, so the agent chose, one way and then the other.</p>
+      </div>
+
+      <div class="check" data-quiz="q13"></div>
+    </section>
+
+    <!-- ========== CH 14 ========== -->
+    <section class="chapter" id="ch14" data-title="What a scripted day can't show">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 14 · Case study</span>
+        <h2>One scripted day, and what it couldn't show</h2>
+      </div>
+      <div class="prose">
+        <p>Before Paul's first day, the builder scripted one. A register of 24 prospects with their history, written to look like Paul's own. The 8:00 briefing. Then some twenty messages sent from a phone: answers to the briefing, new visits, typos, two garages one letter apart, a correction, a voice note with photos of a bill, three notes in ten seconds. Every step has an expected reply and an expected row in the register. In this guide's terms, the day is a set of <span class="term" data-term="Outcome eval" tabindex="0">Outcome evals</span>, and the expected rows are their <span class="term" data-term="Ground truth" tabindex="0">Ground truth</span>.</p>
+        <p>By design, the pilot checks only what shows from outside: the reply on WhatsApp, the rows of the register, the alert emails. On that measure the day went well. Of 26 steps, 24 came out as expected or close enough, both briefings word for word.</p>
+        <p>The builder also read every <span class="term" data-term="Trajectory" tabindex="0">Trajectory</span>, and wrote down something no expected row could show. Flip the switch.</p>
+      </div>
+
+      <div class="sheet" id="w-day">
+        <div class="sheet-head"><span class="sheet-title">The entry agent's 24 Trajectories</span><span class="badge real">Pilot records · 9 Nov</span></div>
+        <div class="sheet-body">
+          <label class="switch"><input type="checkbox" id="day-beh"><span class="track"></span><span>Show one Behavior: searches the register before deciding</span></label>
+          <div class="curve-grid">
+            <div style="display:grid;gap:12px">
+              <div class="day" id="day-strip"></div>
+              <div class="legend" id="day-legend"></div>
+            </div>
+            <div class="info" id="day-info" aria-live="polite"></div>
+          </div>
+          <div class="stats" id="day-stats"></div>
+          <p class="sheet-note">Tap a Trajectory to read it. The three rows are the early morning, the late morning and the afternoon. Where the record gives no time, it says “morning”.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>Ten times, the outcome was right while the Behavior was broken. From 11:39 the agent had mostly stopped searching, and nothing in the register showed it. An id read off a list built for another prospect will one day be the wrong one, and the reply will still say “Recorded”.</p>
+        <p>Seven Trajectories have no result at all for this Behavior. A person reading 24 Trajectories writes down what stands out. A <span class="term" data-term="Judge" tabindex="0">Judge</span> gives a result for every one.</p>
+        <p>From Paul's first day there is no script. His messages come with no expected row, so an Outcome eval has nothing to compare with. The plan for those four weeks is that the builder watches the alert emails and opens a Trajectory when something looks off. Whether a Behavior holds is the one check that can still be made on every Trajectory. Chapter 16 writes it down.</p>
+      </div>
+
+      <div class="check" data-quiz="q14"></div>
+    </section>
+
+    <!-- ========== CH 15 ========== -->
+    <section class="chapter" id="ch15" data-title="What shaped the skipped search">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 15 · Case study</span>
+        <h2>What shaped the skipped search</h2>
+      </div>
+      <div class="prose">
+        <p>The standing instructions told the agent, in so many words, to search first for every prospect. It stopped anyway. As in chapter 6, the <span class="term" data-term="Behavior" tabindex="0">Behavior</span> came from the whole <span class="term" data-term="Context" tabindex="0">Context</span>. Here, most of that Context was written by nobody: it piled up during the day.</p>
+        <p>Three things pushed the same way. The search tool returned up to ten rows every time, however weak the resemblance. All the Trajectories of a day sit in one thread, so each new one reads everything the earlier ones left behind, and the standing instructions say that earlier messages serve as context. And a model sees little reason to ask again for something it can already read.</p>
+        <p>The Opinion itself had a soft edge. The day before, a Trajectory that reused an id found earlier in the thread had been looked at and accepted, since the id came from a real search.</p>
+        <p>The sheet below rebuilds the pile with the pilot's own search code, on the scripted register. Three searches were enough to put 22 of the register's 25 prospects in the thread, most of them with a score that means “no resemblance”.</p>
+      </div>
+
+      <div class="sheet" id="w-dir">
+        <div class="sheet-head"><span class="sheet-title">The thread of the day, read as a directory</span><span class="badge real">Recomputed with the pilot's code</span></div>
+        <div class="sheet-body">
+          <fieldset class="seg"><legend>The thread, after the search of</legend><div class="opts" id="dir-stops"></div></fieldset>
+          <label class="switch"><input type="checkbox" id="dir-filter"><span class="track"></span><span>Apply the change chosen on 10 November: only rows scoring 0.35 or more, five at most</span></label>
+          <div class="dir" id="dir-grid"></div>
+          <p class="result" id="dir-detail" aria-live="polite"></p>
+          <div class="stats" id="dir-stats"></div>
+          <p class="sheet-note">Each box is one prospect of the register. A solid box means its id can be read somewhere in the thread, in a list of search results, with its best score. A red box is an id the agent later took from one of those lists instead of searching. Tap a box for its history.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>With the filter, the thread stops being a directory: 9 prospects listed where there were 22, and none of the eight borrowed ids among them. That is a statement about the Context, computed from the pilot's code. It is not yet a statement about the agent. Whether the agent searches again once the id is gone is what a <span class="term" data-term="Fork" tabindex="0">Fork</span> would show.</p>
+        <p>The review of 10 November chose two changes for this one Behavior. One is the filter in the tool. The other is a rewritten Opinion in the standing instructions, which now forbids taking an id from a search made for another prospect. Both ship together, along with a higher reasoning effort for the model. If the Behavior holds afterwards, nobody will know which change did the work. Chapter 8 gave a reason to care: there, the sentence added to the standing instructions was the change that didn't hold.</p>
+      </div>
+
+      <div class="check" data-quiz="q15"></div>
+    </section>
+
+    <!-- ========== CH 16 ========== -->
+    <section class="chapter" id="ch16" data-title="A Behavior spec for the entry agent">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 16 · Case study</span>
+        <h2>A Behavior spec for the entry agent</h2>
+      </div>
+      <div class="prose">
+        <p>The entry agent's standing instructions run to 57 lines, and the tool descriptions add more. Nearly every line is an <span class="term" data-term="Opinion" tabindex="0">Opinion</span> or part of one. The scripted day showed that they don't weigh the same. A few protect the register from damage nobody would see. Most are about tone and format, where a slip shows at a glance and costs little. Some are already enforced by code.</p>
+        <p>A <span class="term" data-term="Behavior spec" tabindex="0">Behavior spec</span> keeps the first kind only. Here are twelve of the agent's Opinions. Choose the five that belong in it.</p>
+      </div>
+
+      <div class="sheet" id="w-spec">
+        <div class="sheet-head"><span class="sheet-title">Which five go in the Behavior spec?</span><span class="badge">Proposal</span></div>
+        <div class="sheet-body">
+          <div class="controls">
+            <button class="btn primary" type="button" id="spec-check" disabled>Check my five</button>
+            <button class="btn" type="button" id="spec-reset">Clear</button>
+            <span class="mono" style="font-size:0.82rem;color:var(--ink-2)" id="spec-count" aria-live="polite"></span>
+          </div>
+          <div class="cand-list" id="spec-cands"></div>
+          <div class="result" id="spec-out" aria-live="polite" hidden></div>
+          <div class="specs" id="spec-draft" hidden>
+            <span class="eyebrow">A draft Behavior spec for the entry agent</span>
+            <div class="spec">
+              <span class="eyebrow">Entry 1 · searches before it decides</span>
+              <p class="stmt">Before deciding anything about a prospect that a message mentions, the agent searches the register for it. It never takes an id from the results of a search made for another prospect.</p>
+              <dl class="kv">
+                <dt>Applies</dt><dd>A message of the Trajectory names or describes a prospect.</dd>
+                <dt>Doesn't apply</dt><dd>Paul answers the agent's own question about that prospect.</dd>
+                <dt>To settle</dt><dd>An answer to the briefing by number.</dd>
+              </dl>
+            </div>
+            <div class="spec">
+              <span class="eyebrow">Entry 2 · asks when two rows could fit</span>
+              <p class="stmt">When two rows could be the business Paul means, the agent asks, and writes nothing about that prospect until he answers.</p>
+              <dl class="kv">
+                <dt>Applies</dt><dd>The search returns two rows that could fit, or one row that is nearly the name.</dd>
+                <dt>Doesn't apply</dt><dd>One row fits and no other resembles it. Or no row fits, and the agent creates without asking.</dd>
+              </dl>
+            </div>
+            <div class="spec">
+              <span class="eyebrow">Entry 3 · writes only what Paul just said</span>
+              <p class="stmt">The agent writes only what the messages of this Trajectory say. It writes nothing from the morning briefing alone, and nothing again from a message an earlier Trajectory recorded.</p>
+              <dl class="kv">
+                <dt>Applies</dt><dd>Every Trajectory that writes.</dd>
+                <dt>Doesn't apply</dt><dd>A correction from Paul. A message the agent had asked about, noted once Paul answers.</dd>
+              </dl>
+            </div>
+            <div class="spec">
+              <span class="eyebrow">Entry 4 · keeps plans and facts apart</span>
+              <p class="stmt">The status and the summary say what has happened. What Paul still has to do goes in the next step.</p>
+              <dl class="kv">
+                <dt>Applies</dt><dd>A message mixes something done with something still to do.</dd>
+                <dt>Doesn't apply</dt><dd>A message with nothing left to do, such as a signature or a refusal.</dd>
+              </dl>
+            </div>
+            <div class="spec">
+              <span class="eyebrow">Entry 5 · reports only what was written</span>
+              <p class="stmt">“Recorded:” names only prospects whose write a tool confirmed. If a write keeps failing, the reply says so in one line, and never asks Paul to send the message again.</p>
+              <dl class="kv">
+                <dt>Applies</dt><dd>Every Trajectory that calls the write tool.</dd>
+                <dt>Results</dt><dd>For all five: held, violated or not applicable, once per Trajectory.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>Five entries, each a sentence the builder could argue with. That is the spec's first job: before anyone edits the Context, the people responsible agree on what they want. A sixth entry would be fair: a prospect who asked not to be contacted stays that way until Paul says otherwise. It applies rarely, but the request is the prospect's, not the agency's.</p>
+        <p>The second job is the checklist. Take entry 1 and six Trajectories from 9 November. None of them needs an expected row. Give your result, then compare with the <span class="term" data-term="Judge" tabindex="0">Judge</span>.</p>
+      </div>
+
+      <div class="sheet" id="w-cjudge">
+        <div class="sheet-head"><span class="sheet-title">Judge six Trajectories from 9 November</span><span class="badge real">Pilot records</span></div>
+        <div class="sheet-body">
+          <div class="spec">
+            <span class="eyebrow">Entry 1 · searches before it decides</span>
+            <p class="stmt">Before deciding anything about a prospect that a message mentions, the agent searches the register for it. It never takes an id from the results of a search made for another prospect.</p>
+            <dl class="kv">
+              <dt>Applies</dt><dd>A message of the Trajectory names or describes a prospect.</dd>
+              <dt>Doesn't apply</dt><dd>Paul answers the agent's own question about that prospect.</dd>
+              <dt>Results</dt><dd>Held, violated or not applicable, once per Trajectory.</dd>
+            </dl>
+          </div>
+          <p class="score" id="cjudge-score" aria-live="polite"></p>
+          <div class="tcards" id="cjudge-cards"></div>
+          <div class="result" id="cjudge-sum" aria-live="polite" hidden></div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>A person can do this for six Trajectories. Over four weeks of real notes, it is work for a Judge. The model reads the thread of the day and gives a result per entry and per Trajectory. It quotes the line it relied on, so the builder can confirm a result in seconds.</p>
+      </div>
+
+      <div class="check" data-quiz="q16"></div>
+    </section>
+
+    <!-- ========== CH 17 ========== -->
+    <section class="chapter" id="ch17" data-title="Simulations and Forks for the pilot">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 17 · Case study</span>
+        <h2>Checking a change without playing the day again</h2>
+      </div>
+      <div class="prose">
+        <p>The review of 10 November ended with about twenty decisions still to carry out: tool code, rewritten sections of the standing instructions, a higher reasoning effort for the model. The plan is to make every change, reload the register, and play the whole day again. That takes a morning at a phone, plus a look at the next day's 8:00 briefing.</p>
+        <p>Playing the day again is the right last check, and it is an <span class="term" data-term="Outcome eval" tabindex="0">Outcome eval</span>: it will say whether the rows are right. It won't say which change fixed what, and every new idea costs another morning. Chapters 8 and 9 offered two faster tools. Which one fits depends on the finding.</p>
+      </div>
+
+      <div class="sheet" id="w-finds">
+        <div class="sheet-head"><span class="sheet-title">Five findings, three ways to check a fix</span><span class="badge real">Pilot records</span></div>
+        <div class="sheet-body">
+          <p class="score" id="finds-score" aria-live="polite"></p>
+          <div class="finds" id="finds-list"></div>
+          <div class="result" id="finds-sum" aria-live="polite" hidden></div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>A <span class="term" data-term="Simulation" tabindex="0">Simulation</span> needs only files, and the pilot already keeps them:</p>
+        <ol class="steps6">
+          <li><span>Render the Context into files. The standing instructions have a reference copy in the repository, compared with the live agent after each change. The tool descriptions sit in the workflow guide. One function builds the opening block of every Trajectory.</span></li>
+          <li><span>Add the rows of the register that the Situation touches, as they were. The scripted register comes out of a generator, so any morning can be rebuilt.</span></li>
+          <li><span>Ask a coding agent to start helpers. Each one reads the files and plays the entry agent. Tell it to use nothing else, and not to play to the check.</span></li>
+          <li><span>Start with 16:12. If a helper writes “offer sent”, the Simulation reproduces what happened, and you can work with it.</span></li>
+          <li><span>Change one file at a time, and ask again.</span></li>
+          <li><span>Keep every Situation that reproduced. They are the first ones to try after each later change to the Context.</span></li>
+        </ol>
+        <p>A <span class="term" data-term="Fork" tabindex="0">Fork</span> is further away. It has to bring back three things as they were at one moment of 9 November.</p>
+      </div>
+
+      <div class="sheet" id="w-needs">
+        <div class="sheet-head"><span class="sheet-title">What a Fork would take in this Harness</span><span class="badge">Proposal</span></div>
+        <div class="sheet-body">
+          <div class="needs">
+            <span class="k">The thread</span>
+            <span><span class="eyebrow">Already there</span>Auxilia saves the state of a thread at every step, and its code can restart the last answer from the state just before it.</span>
+            <span><span class="eyebrow">Missing</span>Starting a copy from any earlier step, with the original thread left as it is.</span>
+            <span class="k">The register</span>
+            <span><span class="eyebrow">Already there</span>A generator rebuilds the scripted register for any Monday.</span>
+            <span><span class="eyebrow">Missing</span>A copy of both sheets before each Trajectory, and tools that can be pointed at that copy, so that a Fork never writes in the real register.</span>
+            <span class="k">The Context</span>
+            <span><span class="eyebrow">Already there</span>A reference copy of the standing instructions, compared with the live agent.</span>
+            <span><span class="eyebrow">Missing</span>A stamp on each Trajectory saying which version it read. On 9 November the instructions changed at 11:10, in the middle of the day.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>Auxilia is built by the same person who built the pilot, and one stated goal of the pilot is a list of what Auxilia lacks. These three lines belong on it.</p>
+      </div>
+
+      <div class="check" data-quiz="q17"></div>
+    </section>
+
+    <!-- ========== CH 18 ========== -->
+    <section class="chapter" id="ch18" data-title="Signal and trust in production">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 18 · Case study</span>
+        <h2>Four weeks with Paul: Signal, loop, trust</h2>
+      </div>
+      <div class="prose">
+        <p>The pilot lasts four weeks, with one user. Its verdict is Paul's own judgment, given in a closing interview, and that is the right outcome for the agency to care about. In between, the builder needs <span class="term" data-term="Signal" tabindex="0">Signal</span>: evidence, day by day, that the agents work as intended.</p>
+        <p>The <span class="term" data-term="Harness" tabindex="0">Harness</span> already produces some. A Trajectory that fails turns the ✅ on Paul's message into ⚠️ and sends an email. At 8:15 a check looks for one thing, a briefing sent this morning, and sends an email if there is none. A monitor calls the server every five minutes. All three tell whether the Harness ran. None looks at what the agent decided.</p>
+        <p>Pick a failure and see who would notice.</p>
+      </div>
+
+      <div class="sheet" id="w-watch">
+        <div class="sheet-head"><span class="sheet-title">Who notices, and when?</span><span class="badge real">Pilot records, plus one proposal</span></div>
+        <div class="sheet-body">
+          <div class="two">
+            <div style="display:grid;gap:10px;align-content:start">
+              <span class="eyebrow">Something goes wrong</span>
+              <div class="choices" id="watch-fails"></div>
+            </div>
+            <div class="info" id="watch-info" aria-live="polite"></div>
+          </div>
+          <p class="result" id="watch-sum" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>The pattern is plain. When the Harness stops, somebody knows within minutes. When the agent decides badly and the Harness keeps running, the only watchers are Paul and whoever happens to open the thread.</p>
+        <p>Closing the loop here takes one more scheduled job, of a kind the pilot already runs every morning for the briefing. Each evening, a <span class="term" data-term="Judge" tabindex="0">Judge</span> reads the thread of the day and gives every Trajectory a result for each of the five entries, with the line it relied on. The builder gets one email: how many held, and the two or three worth opening. He stops reading Trajectories when something looks off, and starts reading the ones that were flagged, plus a few picked at random to keep the Judge honest.</p>
+        <p>That email is also how trust gets built, and the agency will need it. The pilot's list of what comes after is long: the same WhatsApp entry for the sales reps who work under Paul, follow-ups when a client's contract nears its end, proposals with a savings figure sent to prospects. Each step raises what could break.</p>
+      </div>
+
+      <div class="sheet" id="w-ladder">
+        <div class="sheet-head"><span class="sheet-title">What the agents are trusted with</span><span class="badge">Proposal · illustrative</span></div>
+        <div class="sheet-body">
+          <fieldset class="seg"><legend>Evidence so far</legend><div class="opts" id="ladder-ev"></div></fieldset>
+          <div class="ladder" id="ladder-rungs"></div>
+          <p class="result" id="ladder-msg" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>One last link, to chapter 11. The review kept the small model. It found no error that came from a hard Situation the model failed to understand: each one came from a gap in the Context or in the Harness. And the search threshold has already moved up a level, from an exact method (“below 0.35, ask”) to what must hold (“judge whether a row is the business Paul means, and ask when two could be”). Both decisions were possible to reason about because the Opinions were written down.</p>
+      </div>
+
+      <div class="check" data-quiz="q18"></div>
+    </section>
+
+    <!-- ========== CASE STUDY RECAP ========== -->
+    <section class="next" aria-labelledby="case-next-h">
+      <span class="eyebrow">Case study · recap</span>
+      <h2 id="case-next-h">What the pilot could do next, in order</h2>
+      <ol class="steps6" style="max-width:64ch">
+        <li><span>Write the five entries of <a href="#ch16">chapter 16</a> next to the standing instructions, and settle the open point of entry 1: does an answer to the briefing by number need a search?</span></li>
+        <li><span>Before playing the day again, try the chosen changes in Simulations: 16:12 first, then the pair of 11:12 and 11:22. Keep the Situations that reproduce.</span></li>
+        <li><span>When the day is played again, add one column per entry to the results, so that every Trajectory gets a Behavior result next to its outcome.</span></li>
+        <li><span>For the four weeks with Paul: a Judge on each day's thread, and one email in the evening. Plus one check by code: every message id of the day appears in the notes.</span></li>
+        <li><span>On Auxilia's list of gaps: copying a thread from any step, and stamping each Trajectory with the version of its Context. For the register: a copy before each Trajectory.</span></li>
+        <li><span>Open the entry to other sales reps once the entries have held for several weeks.</span></li>
+      </ol>
+      <p class="colophon">Drawn from the pilot's own documents: its specification, its guides for the workflows and the agents, and the record of the scripted day of 9 and 10 November 2026. The scripted register was written for the occasion; one business in it comes from a bill used in the pilot's checks, and is left unnamed here. Search scores were recomputed with the pilot's search code and agree with every score in the record. Anything marked Proposal has not been built.</p>
     </section>
   </main>
 </div>
@@ -2326,6 +2882,657 @@ dialog.gloss::backdrop { background: rgba(10, 16, 12, 0.45); }
     render();
   })();
 
+  /* ==========================================================================
+     CASE STUDY (chapters 12 to 18): the dmp-courtage pilot.
+     Everything badged "Pilot records" comes from the pilot's documents: its spec,
+     its n8n and Auxilia guides, and the record of the scripted day of 9 and
+     10 November 2026. Messages and register values are translated from French.
+     ========================================================================== */
+
+  // The pilot's own words, translated from its glossary.
+  const PILOT = {
+    "Prospect register": "The list the agency keeps of its prospects, with the result of each visit and the date to contact them again. In the pilot it is a spreadsheet.",
+    "Visit note": "A free-form message, typed or dictated, that the sales rep sends after a visit or a follow-up to keep the prospect register up to date.",
+    "Follow-up": "A new contact with a prospect on the date planned in the prospect register: a visit, a call or a message.",
+    "Morning briefing": "A message sent to the sales rep every working day, listing the prospects whose follow-up is due or overdue.",
+    "Batch": "The messages a sales rep sends less than 45 seconds apart. The Harness hands them to the agent together, as one Trajectory.",
+  };
+  for (const [t, d] of Object.entries(PILOT)) DEFS[t] = { d, kind: "Pilot" };
+  glossBody.append(h("section", {}, h("h3", { text: "Case study · the pilot's words" }),
+    h("dl", {}, Object.entries(PILOT).map(([t, d]) => h("div", {}, h("dt", { text: t }), h("dd", { text: d }))))));
+
+  const RES3 = { na: ["na", "not applicable"], held: ["ok", "held"], violated: ["no", "violated"] };
+  const cap = (s) => s[0].toUpperCase() + s.slice(1);
+
+  /* =================== CH 12: one visit note, end to end =================== */
+  (() => {
+    const MSG = "Le Fournil de Sarcelles, bakery on rue du Chardon, Mr Diallo, 06 33 44 55 66. With EDF until June 2027";
+    const list = (items) => h("ul", {}, items.map((t) => h("li", { text: t })));
+    const STAGES = [
+      { k: "Sent", t: "Paul sends a visit note", body: () => [list([
+        "Meta delivers the message to the entry workflow.",
+        "The sender is checked against the list of allowed numbers.",
+        "A message that Meta delivers twice is dropped here, before anything else happens.",
+        "The message is stored, with the time it arrived."])] },
+      { k: "Received", t: "Paul knows it arrived", body: () => [list([
+        "Marks the message as read: the ticks turn blue.",
+        "Reacts with ✅. It means received, not yet recorded."])] },
+      { k: "Silence", t: "Wait for Paul to finish", body: () => [list([
+        "Waits 45 seconds. Messages sent less than 45 seconds apart leave together, as one batch.",
+        "A voice note is turned into text. A photo or a PDF of a bill is attached as it is.",
+        "One batch becomes one Trajectory, in the thread of the day."])] },
+      { k: "Context", t: "Assemble what the agent will read", body: () => [
+        h("p", { text: "Before the model reads a word of Paul's, the Harness has settled what else it reads:" }),
+        list([
+          "The standing instructions: 57 lines on how to file a note.",
+          "The descriptions of its two tools: search the register, write a prospect.",
+          "Every earlier Trajectory of the day, kept in the same thread.",
+          "An opening block built for this batch:"]),
+        h("pre", { class: "ctxblock", text:
+          "Today's date: Monday 9 November 2026 (2026-11-09).\n" +
+          "Link of the thread, to copy into every note: https://…/chat/wa-33…-2026-11-09\n\n" +
+          "Message of 11:22 · wa_message_id wamid.HBg… · text\n" + MSG }),
+        h("p", { style: "font-size:0.86rem;color:var(--ink-2)", text: "On the first Trajectory after a briefing, the block also carries the briefing, and which prospect each number stands for." })] },
+      { k: "Agent", t: "The agent judges, the tools do the rest", body: () => [
+        h("ol", { class: "path" },
+          h("li", { text: "The agent calls the search tool with “Le Fournil de Sarcelles”. Ten rows come back: Fleurs & Co at 0.50, Boucherie Saint-Denis at 0.49, Boulangerie Martin at 0.48, and seven weaker ones." }),
+          h("li", { text: "It judges that none of them is this bakery, and calls the write tool with an empty id." }),
+          h("li", { text: "Inside the tool, code checks the status against its eight allowed values and the dates against one format, generates the id, writes the row, and adds Paul's message as a note." }),
+          h("li", { text: "The whole Trajectory takes 19 seconds." }))] },
+      { k: "Register", t: "A row in the register, a line for Paul", body: () => [
+        h("dl", { class: "kv" },
+          h("dt", { text: "Business" }), h("dd", { text: "Le Fournil de Sarcelles" }),
+          h("dt", { text: "Owner" }), h("dd", { text: "M. Diallo · 06 33 44 55 66" }),
+          h("dt", { text: "Address" }), h("dd", { text: "Rue du Chardon, Sarcelles" }),
+          h("dt", { text: "Supplier" }), h("dd", { text: "EDF, contract until 2027-06-01" }),
+          h("dt", { text: "Status" }), h("dd", { text: "waiting" }),
+          h("dt", { text: "Next step" }), h("dd", { text: "Call back before the contract ends" }),
+          h("dt", { text: "Follow-up" }), h("dd", { class: "good", text: "2027-05-01" })),
+        list(["Sends the agent's answer to Paul as it stands.", "Marks the message as recorded."])] },
+    ];
+    const box = $("#note-stages"), next = $("#note-next"), phone = $("#note-phone"), info = $("#note-info"), sum = $("#note-sum");
+    STAGES.forEach((s, i) => {
+      const attrs = { type: "radio", name: "ns", id: "ns" + i, value: String(i) };
+      if (i === 0) attrs.checked = "";
+      box.append(h("input", attrs), h("label", { for: "ns" + i, text: `${i + 1}. ${s.k}` }));
+    });
+    const cur = () => +$('input[name="ns"]:checked').value;
+    function render() {
+      const k = cur(), s = STAGES[k], last = k === STAGES.length - 1;
+      phone.innerHTML = "";
+      phone.append(h("div", { class: "phone-head" }, h("span", { text: "What Paul sees" }), h("span", { text: "WhatsApp" })));
+      const out = h("div", { class: "wa out" }, MSG, h("span", { class: "meta", text: k >= 1 ? "11:22 · read" : "11:22" }));
+      if (k >= 1) out.append(h("span", { class: "react", role: "img", "aria-label": "Reaction: received", text: "✅" }));
+      phone.append(out);
+      if (k >= 2 && !last) phone.append(h("div", { class: "wa-wait", text: k === 2 ? "45 seconds of silence" : "the agent is at work" }));
+      if (last) phone.append(h("div", { class: "wa in" }, "Recorded: Le Fournil de Sarcelles. Follow-up on 01/05/2027, one month before the contract ends.", h("span", { class: "meta", text: "11:23" })));
+      info.innerHTML = "";
+      info.append(
+        h("span", { class: "eyebrow", text: `What the Harness does · stage ${k + 1} of ${STAGES.length}` }),
+        h("span", { class: "t", text: s.t }), ...s.body());
+      sum.textContent = last
+        ? "Paul's part: one message, and one line to read a minute later. The rest is the Harness, and Paul never sees it."
+        : "Paul's part so far: one message.";
+      next.textContent = last ? "Start again" : "Next stage";
+    }
+    box.addEventListener("change", render);
+    next.addEventListener("click", () => {
+      const k = (cur() + 1) % STAGES.length;
+      $("#ns" + k).checked = true;
+      render();
+    });
+    render();
+  })();
+
+  /* =================== CH 13: Harness or Context =================== */
+  (() => {
+    const HOME = { harness: "Enforced by the Harness", context: "Delivered as Context" };
+    const OPS = [
+      { s: "The id of a new prospect is never made up.", a: "harness",
+        did: "The tool generates the id whenever the agent leaves it empty, and answers an unknown id with an error the agent can read and correct.",
+        saw: "No id was made up. The Context also says never to invent one, but nothing depends on that sentence.",
+        other: "You chose the Context. The sentence is there too, and nothing depends on it." },
+      { s: "A field the agent knows nothing about stays empty.", a: "harness",
+        did: "It started in the Context: a field you don't know stays empty, don't write \"\" or null. Since 8 November, the tool also counts \"\" and null as empty.",
+        saw: "The agent went on sending \"\" all day: in eight fields at 10:11, in every field at 15:50. The sentence didn't hold. The tool did, and the register never showed it.",
+        other: "You chose the Context. So did the pilot, at first." },
+      { s: "Follow-ups that are due come oldest first.", a: "harness",
+        did: "The tool that reads the register filters and sorts. The briefing agent is told not to sort again, only to take the first five.",
+        saw: "Both briefings arrived word for word as expected, on 9 and 10 November.",
+        other: "You chose the Context. An agent sorts well most of the time. Code sorts every time." },
+      { s: "Decide whether a row of the register is the business Paul means.", a: "context",
+        did: "It was first written as a number: below a score of 0.35, ask Paul. That number came from a register of seven rows.",
+        saw: "On 24 rows, a real partial name scored 0.54, an unrelated florist 0.50, and another tobacconist by the same station 0.69. No number can decide alone. Chosen on 10 November: the tool only filters out weak rows, and the agent judges. It judged well at 11:12, 11:22 and 17:10.",
+        other: "You chose the Harness. The pilot tried a number first, and no number could decide." },
+      { s: "Two writes on the same row don't overwrite each other.", a: "harness",
+        did: "The agent often sends several tool calls at once, one note per message. Telling it to call one at a time was considered and dropped: the model wouldn't always follow. The tool now writes only the columns it receives, and adds notes in one step.",
+        saw: "That morning, a second call had written an old summary over a new one, and a note was lost. After the change, updates sent together did no damage. New rows weren't covered: at 17:20, three prospects created at once landed on one line. Code holds only as far as it reaches.",
+        other: "You chose the Context. The pilot considered that and dropped it." },
+      { s: "The status says what has happened. What remains to do goes in the next step.", a: "context",
+        did: "Only the agent can read “send the offer” and tell a plan from a fact. The Context listed “offer sent” among the statuses with no definition, the only one without.",
+        saw: "At 16:12, Paul wrote that an owner had agreed and that the offer was still to send. The row said “offer sent”. The Opinion now has its sentence in the Context. No code can check it, so it has to be checked on Trajectories.",
+        other: "You chose the Harness. No code can tell a plan from a fact in a sentence." },
+    ];
+    const box = $("#home-ops"), score = $("#home-score"), sumEl = $("#home-sum");
+    const answers = {};
+    function update() {
+      const done = Object.keys(answers).length;
+      const agree = OPS.filter((o, i) => answers[i] === o.a).length;
+      score.textContent = done ? `You agree with the pilot on ${agree} of ${done} so far.` : "Nothing chosen yet.";
+      if (done === OPS.length) {
+        const nh = OPS.filter((o) => o.a === "harness").length;
+        sumEl.hidden = false;
+        sumEl.innerHTML = "";
+        sumEl.append(h("b", { text: `${nh} of these ${OPS.length} are enforced by the Harness.` }),
+          ` They hold on every Trajectory, as far as the code reaches, and need no Behavior eval. The other ${OPS.length - nh} take judgment and can only be delivered as Context. Those are the ones to write into a Behavior spec, in chapter 16.`);
+      }
+    }
+    OPS.forEach((o, i) => {
+      const btns = h("div", { class: "rbtns", role: "group", "aria-label": `Where Opinion ${i + 1} should live` });
+      const out = h("div", { class: "jres", hidden: "" });
+      [["harness", "The Harness enforces it"], ["context", "The agent reads it in the Context"]].forEach(([k, label]) => {
+        const b = h("button", { type: "button", class: "rbtn", "aria-pressed": "false", text: label });
+        b.addEventListener("click", () => {
+          answers[i] = k;
+          $$(".rbtn", btns).forEach((x) => { x.disabled = true; x.setAttribute("aria-pressed", String(x === b)); });
+          out.hidden = false;
+          out.append(
+            h("span", {}, "The pilot: ", h("span", { class: "home " + o.a, text: HOME[o.a] })),
+            h("span", { text: o.did }),
+            h("span", {}, h("b", { text: "On the scripted day: " }), o.saw),
+            h("span", { class: "you", text: k === o.a ? "You agree." : o.other }));
+          update();
+        });
+        btns.append(b);
+      });
+      box.append(h("div", { class: "op" }, h("span", { class: "n", text: `Opinion ${i + 1} of ${OPS.length}` }), h("p", { class: "stmt", text: o.s }), btns, out));
+    });
+    update();
+  })();
+
+  /* =================== CH 14: the scripted day =================== */
+  (() => {
+    // o: outcome against the expected reply and row. b: what the builder's reading wrote down about the search.
+    const DAY = [
+      { t: "10:11", m: "5: saw the brother, he wants an offer, back on Wednesday with it", o: "ok", on: "Right prospect, found through the briefing's numbering. Follow-up set for Wednesday.", b: "bad", bn: "Took the id from the briefing, wrote, then searched." },
+      { t: "morning", m: "4: out again, back on Thursday morning", o: "ok", on: "Row updated, follow-up set for Thursday.", b: "none" },
+      { t: "morning", m: "1: Tabac du Centre, bank details received", o: "ok", on: "Number 1 was another business. The agent asked which one Paul meant, and wrote nothing.", b: "none" },
+      { t: "morning", m: "Yes, Tabac du Centre, that's number 3. File complete, I'm preparing the offer, follow up Friday", o: "ok", on: "Row updated. One gap: the earlier message, the one the agent had asked about, got no note.", b: "none" },
+      { t: "morning", m: "Kebab Antalya: the accountant said yes, he's signing!", o: "ok", on: "Found by its name, and marked signed.", b: "none" },
+      { t: "morning", m: "Pharmacie des Lilas: registration papers received, file complete, follow up next Monday", o: "ok", on: "Sent as an answer quoting the 8:00 briefing. Row updated.", b: "none" },
+      { t: "morning", m: "Went by the bakery, the owner was in, he's looking for his last bill", o: "ok", on: "Two bakeries, Martin and Marin. The agent asked which, and wrote nothing.", b: "none" },
+      { t: "morning", m: "Marin", o: "ok", on: "Right bakery updated. Two tool calls sent at once overwrote each other: a defect of the Harness, fixed the same day.", b: "none" },
+      { t: "11:12", m: "Bar Tabac Le Balto, place de la Gare in Garges, owner absent", o: "mid", on: "Not in the register. The agent asked before creating it. The script expected it to create, then ask for a date.", b: "ok", bn: "One search, before anything else." },
+      { t: "11:19", m: "Yes, new prospect", o: "ok", on: "Row created, with a note for each of the two messages.", b: "na", bn: "Paul was answering the agent's own question. The search of 11:12 stood." },
+      { t: "11:22", m: "Le Fournil de Sarcelles, bakery on rue du Chardon, Mr Diallo, 06 33 44 55 66. With EDF until June 2027", o: "ok", on: "Row created, follow-up one month before the contract ends.", b: "ok", bn: "Searched, found only look-alikes, then created." },
+      { t: "11:39", m: "Garage du Pon: saw the owner, loyal to EDF, won't switch, drop it", o: "ok", on: "Garage Dupont or Garage du Pont? The agent asked, and wrote nothing.", b: "bad", bn: "No search. It knew of Garage du Pont from the list returned at 11:12 for another business." },
+      { t: "12:01", m: "Garage Dupont", o: "ok", on: "Marked lost, with the reason, and both messages kept as notes. The other garage untouched.", b: "bad", bn: "Wrote, then searched." },
+      { t: "12:03", m: "Crêperie Ty Breizh: the owner is interested, he'll give me his bill on Friday", o: "ok", on: "Row updated, follow-up on Friday.", b: "bad", bn: "No search. The id came from the list of 11:12, where the crêperie scored 0.13." },
+      { t: "12:06", m: "No, sorry, not the crêperie, it was the caterer, Saveurs d'Asie", o: "ok", on: "Caterer updated, crêperie put back exactly as it was.", b: "bad", bn: "Wrote, then searched." },
+      { t: "12:16", m: "Le Balto: Thursday", o: "ok", on: "The row created at 11:19 got its follow-up date.", b: "na", bn: "Paul was answering the agent's question about a date." },
+      { t: "15:43", m: "Café des Sports: the owner doesn't want us to come by any more", o: "ok", on: "Marked “do not contact”.", b: "bad", bn: "No search. The id came from the list of 11:12." },
+      { t: "15:50", m: "Opticien Vision Plus and Auto-École Prisme closed today, nothing new", o: "ok", on: "One note on each, nothing else changed.", b: "bad", bn: "No search. Both ids came from the list of 11:12." },
+      { t: "16:03", m: "A voice note and two photos of a bill, within ten seconds", o: "ok", on: "One Trajectory for the three. The voice note garbled the name of the business, and the agent took it from the bill.", b: "bad", bn: "No search. The id came from the list of 11:22, where this row scored 0.45." },
+      { t: "16:12", m: "Mrs Haddad called back about the hair salon: OK for ENGIE Pro, send the offer, follow up Friday", o: "bad", on: "Right row, wrong content: status “offer sent” and next step “follow the offer”, for an offer that hadn't left.", b: "bad", bn: "No search. The id came from the list of 11:22." },
+      { t: "17:00", m: "Pressing Net, the owner seemed open today, come back in a month", o: "mid", on: "This prospect had asked not to be contacted. The agent kept the status, reminded Paul, and asked. The script hadn't settled what to expect.", b: "bad", bn: "No search. The id came from the list of 10:11, where this row scored 0.16." },
+      { t: "17:06", m: "Yes, put her back in, I'll come back in a month", o: "ok", on: "Status back to “to revisit”, follow-up in a month.", b: "na", bn: "Paul was answering the agent's question." },
+      { t: "17:10", m: "Three notes within ten seconds: a cheese shop, a bistro, a tobacconist by the station", o: "ok", on: "Three new names. The agent asked before creating, as the Context then said.", b: "ok", bn: "Three searches, one per business, before anything else." },
+      { t: "17:19", m: "All three are new, the tobacconist is not Le Balto", o: "bad", on: "A defect of the Harness: three rows created at once landed on one line, each tool call answered “done”, then the spreadsheet refused further calls. One prospect missing, no alert.", b: "na", bn: "Paul was answering the agent's questions." },
+    ];
+    const OUT = { ok: ["✓", "", "as expected"], mid: ["≈", "dim", "close enough"], bad: ["✗", "bad", "failed"] };
+    const BEH = { ok: "searched first", bad: "skipped the search, or searched late", na: "answering the agent's question", none: "not written down" };
+    const strip = $("#day-strip"), info = $("#day-info"), sw = $("#day-beh"), stats = $("#day-stats"), legend = $("#day-legend");
+    let sel = 11;
+    const cards = DAY.map((d, i) => {
+      const mark = h("span", { class: "bm " + d.b, hidden: "" });
+      const b = h("button", { type: "button", class: "dcard" },
+        h("span", { class: "dn", text: String(i + 1) }),
+        h("span", { class: `tk sm ${OUT[d.o][1]}`.trim(), text: OUT[d.o][0] }), mark);
+      b.addEventListener("click", () => { sel = i; render(); });
+      strip.append(b);
+      return { b, mark };
+    });
+    const count = (key, v) => DAY.filter((d) => d[key] === v).length;
+    function render() {
+      const on = sw.checked;
+      cards.forEach(({ b, mark }, i) => {
+        const d = DAY[i];
+        mark.hidden = !on;
+        b.setAttribute("aria-pressed", String(i === sel));
+        b.setAttribute("aria-label", `Trajectory ${i + 1}, ${d.t}: ${OUT[d.o][2]}` + (on ? `; ${BEH[d.b]}` : ""));
+      });
+      legend.innerHTML = "";
+      Object.values(OUT).forEach(([sym, cls, name]) => legend.append(h("span", {}, h("span", { class: `tk sm ${cls}`.trim(), text: sym }), name)));
+      if (on) Object.entries(BEH).forEach(([k, name]) => legend.append(h("span", {}, h("span", { class: "bm " + k }), name)));
+
+      const d = DAY[sel];
+      const beh = !on ? h("dd", { style: "color:var(--pencil)", text: "Switch it on to see what the builder's reading wrote down." })
+        : d.b === "none" ? h("dd", { text: "Not written down. The review noted this Behavior where it stood out." })
+        : h("dd", {}, h("span", { class: d.b === "bad" ? "bad" : d.b === "ok" ? "good" : "", text: cap(BEH[d.b]) + ". " }), d.bn);
+      info.innerHTML = "";
+      info.append(
+        h("span", { class: "eyebrow", text: `Trajectory ${sel + 1} of ${DAY.length} · ${d.t}` }),
+        h("span", { class: "t", text: `“${d.m}”` }),
+        h("dl", { class: "kv" },
+          h("dt", { text: "Outcome" }), h("dd", {}, h("span", { class: d.o === "bad" ? "bad" : d.o === "ok" ? "good" : "", text: cap(OUT[d.o][2]) + ". " }), d.on),
+          h("dt", { text: "Behavior" }), beh));
+
+      const fine = DAY.length - count("o", "bad"), broke = count("b", "bad");
+      stats.innerHTML = "";
+      stats.append(
+        h("div", { class: "stat" }, h("span", { class: "v", text: `${fine} of ${DAY.length}` }), h("span", { class: "k", text: "Came out as expected or close enough, judged on the reply and the row" })),
+        on ? h("div", { class: "stat warn" }, h("span", { class: "v", text: String(broke) }), h("span", { class: "k", text: "Skipped the search, or searched after writing" }))
+           : h("div", { class: "stat warn" }, h("span", { class: "v", text: String(count("o", "bad")) }), h("span", { class: "k", text: "Failed: one wrong status, one defect of the Harness" })),
+        on ? h("div", { class: "stat" }, h("span", { class: "v", text: `${broke} of ${broke}` }), h("span", { class: "k", text: "Of those, still picked the right prospect" }))
+           : h("div", { class: "stat" }, h("span", { class: "v", text: "?" }), h("span", { class: "k", text: "How the agent got there" })));
+    }
+    sw.addEventListener("change", render);
+    render();
+  })();
+
+  /* =================== CH 15: the thread as a directory =================== */
+  (() => {
+    // Scores recomputed with the pilot's search code (trigram similarity plus a bonus per shared word)
+    // on the scripted register. They agree with every score in the record of the day.
+    const Q = [["10:11", "Supérette Marché Plus"], ["11:12", "Bar tabac le balto"], ["11:22", "Le Fournil de Sarcelles"]];
+    // [prospect, score in each of the three lists (null: not returned), time its id was borrowed, list it was taken from]
+    const P = [
+      ["Boulangerie Martin", [0.22, null, 0.48]],
+      ["Garage Dupont", [0.07, null, null]],
+      ["Tabac du Centre", [null, 0.39, null]],
+      ["Pizzeria Roma", [null, null, null]],
+      ["Supérette Marché Plus", [1, 0.09, null]],
+      ["Kebab Antalya", [null, null, 0.42]],
+      ["Coiffure Élégance", [null, null, 0.41], "16:12", 2],
+      ["Garage du Pont", [null, 0.07, null], "11:39", 1],
+      ["Pharmacie des Lilas", [null, null, 0.46]],
+      ["Fleurs & Co", [0.08, null, 0.5]],
+      ["Bar Le Central", [0.32, 0.46, null]],
+      ["Pressing Net", [0.16, null, null], "17:00", 0],
+      ["Boucherie Saint-Denis", [null, null, 0.49]],
+      ["Restaurant Le Saint-Brice", [0.09, 0.09, null]],
+      ["Laverie du Marché", [0.4, null, null]],
+      ["Auto-École Prisme", [null, 0.11, 0.43], "15:50", 1],
+      ["Traiteur Saveurs d'Asie", [null, null, null]],
+      ["Boulangerie Marin", [0.17, 0.11, null]],
+      ["Crêperie Ty Breizh", [null, 0.13, null], "12:03", 1],
+      ["A client with several sites", [null, null, 0.45], "16:03", 2],
+      ["Onglerie Nail'Art", [null, null, 0.41]],
+      ["Opticien Vision Plus", [0.29, 0.06, null], "15:50", 1],
+      ["L'Atelier d'Émilie", [null, null, 0.47]],
+      ["Café des Sports", [null, 0.1, null], "15:43", 1],
+      ["Bar tabac Le Balto", [null, null, null]],
+    ];
+    const BALTO = P.length - 1; // created at 11:19: absent from the register for the first two searches
+    const STOPS = ["10:11", "11:12", "11:22", "the whole day"];
+    // The change chosen on 10 November: a list keeps rows scoring 0.35 or more, five at most.
+    const KEPT = Q.map((_, q) => new Set(P.map((p, i) => [p[1][q], i]).filter(([s]) => s != null && s >= 0.35)
+      .sort((a, b) => b[0] - a[0]).slice(0, 5).map(([, i]) => i)));
+    const BORROWED = P.filter((p) => p[2]).length, BORROWERS = new Set(P.filter((p) => p[2]).map((p) => p[2])).size;
+    const stopsBox = $("#dir-stops"), filter = $("#dir-filter"), grid = $("#dir-grid"), detail = $("#dir-detail"), stats = $("#dir-stats");
+    STOPS.forEach((s, i) => {
+      const attrs = { type: "radio", name: "ds", id: "ds" + i, value: String(i) };
+      if (i === STOPS.length - 1) attrs.checked = "";
+      stopsBox.append(h("input", attrs), h("label", { for: "ds" + i, text: s }));
+    });
+    const stop = () => +$('input[name="ds"]:checked').value;
+    // Lists where prospect i appears, among the searches made so far.
+    const listings = (i, upto, filt) => Q.map((_, q) => q).filter((q) => q <= Math.min(upto, 2) && P[i][1][q] != null && (!filt || KEPT[q].has(i)));
+    let sel = null;
+    const cells = P.map((p, i) => {
+      const sc = h("span", { class: "sc" }), bw = h("span", { class: "bw" });
+      const b = h("button", { type: "button", class: "pcell", "aria-pressed": "false" }, h("span", { text: p[0] }), sc, bw);
+      const pick = () => { sel = i; render(); };
+      b.addEventListener("click", pick);
+      b.addEventListener("mouseenter", pick);
+      grid.append(b);
+      return { b, sc, bw };
+    });
+    function render() {
+      const k = stop(), filt = filter.checked, day = k === 3;
+      let listed = 0, borrowedListed = 0;
+      cells.forEach(({ b, sc, bw }, i) => {
+        const p = P[i], ls = listings(i, k, filt), on = ls.length > 0;
+        const best = on ? Math.max(...ls.map((q) => p[1][q])) : null;
+        if (on) listed++;
+        if (on && p[2]) borrowedListed++;
+        const notYet = i === BALTO && k < 2;
+        b.className = "pcell" + (on ? " listed" : "") + (on && day && p[2] ? " borrowed" : "");
+        b.setAttribute("aria-pressed", String(i === sel));
+        sc.textContent = notYet ? "created at 11:19" : on ? "score " + best.toFixed(2) : "not listed";
+        bw.textContent = !(day && p[2]) ? "" : on ? `id borrowed at ${p[2]}` : `borrowed at ${p[2]} on the day`;
+      });
+      const total = k < 2 ? P.length - 1 : P.length;
+      stats.innerHTML = "";
+      stats.append(
+        h("div", { class: "stat" }, h("span", { class: "v", text: `${listed} of ${total}` }), h("span", { class: "k", text: "Prospects whose id can be read in the thread" })),
+        h("div", { class: "stat" + (borrowedListed ? " warn" : "") }, h("span", { class: "v", text: `${borrowedListed} of ${BORROWED}` }), h("span", { class: "k", text: "Of the ids borrowed later that day, already on a list" })),
+        h("div", { class: "stat" }, h("span", { class: "v", text: day ? String(BORROWERS) : "–" }), h("span", { class: "k", text: day ? "Trajectories that took an id from a list instead of searching" : "Borrowing starts at 11:39. Choose “the whole day”." })));
+
+      detail.innerHTML = "";
+      if (sel == null) { detail.textContent = "Hover over a box, or tap it, to see where its id came from."; return; }
+      const p = P[sel], all = listings(sel, 2, false), now = listings(sel, k, filt);
+      detail.append(h("b", { text: p[0] + ". " }));
+      if (!all.length) {
+        detail.append(sel === BALTO ? "Created at 11:19, and returned by none of the three searches." : "Returned by none of the three searches.");
+        return;
+      }
+      detail.append(all.map((q) => `Returned at ${Q[q][0]} with a score of ${p[1][q].toFixed(2)}, in a search for “${Q[q][1]}”.`).join(" "));
+      if (p[2]) detail.append(` At ${p[2]}, the agent took this id from the list of ${Q[p[3]][0]} without searching.`);
+      if (filt) detail.append(now.length ? " The filter keeps it." : all.some((q) => q <= Math.min(k, 2)) ? " The filter drops it: too weak, or beyond the first five." : "");
+    }
+    stopsBox.addEventListener("change", render);
+    filter.addEventListener("change", render);
+    render();
+  })();
+
+  /* =================== CH 16a: which Opinions go in the spec =================== */
+  (() => {
+    const CANDS = [
+      { s: "No emoji, no bold, no greeting in the reply.", in: false,
+        why: "A slip shows in the chat and costs nothing. It stays in the Context." },
+      { s: "Before deciding anything about a prospect, search the register for it. Never take an id from a search made for another prospect.", in: true,
+        why: "A wrong row is damage nobody sees: the reply still says “Recorded”. Broken ten times on 9 November, with no visible effect." },
+      { s: "Dates are written year-month-day.", in: false,
+        why: "The tool refuses anything else, with an error the agent corrects. The Harness enforces it." },
+      { s: "Every message ends as a note on its prospect, with its own message id.", in: false,
+        why: "It matters, and code can check it: the Harness knows the ids of the batch, and can look for each one in the notes after the Trajectory. Keep the Judge for what code can't check." },
+      { s: "The status and the summary say what has happened. What remains to do goes in the next step.", in: true,
+        why: "Broken once, at 16:12. Four days later, the briefing would have told Paul to chase an offer that never left." },
+      { s: "“Recorded:” names only what a tool confirmed. If a write keeps failing, say so, and never ask Paul to send it again.", in: true,
+        why: "That line is all Paul sees of the register. At 17:22 it was partly false, and it asked him to send his notes again." },
+      { s: "Address Paul with the informal “tu”.", in: false,
+        why: "Tone. Chosen on 10 November, and visible at a glance." },
+      { s: "When two rows could be the business Paul means, ask, and write nothing about it until he answers.", in: true,
+        why: "The other half of protecting rows. It held at 11:39, for two garages one letter apart." },
+      { s: "The id of a new prospect comes from the tool.", in: false,
+        why: "The Harness enforces it. There is nothing to check." },
+      { s: "Write only what the messages of this Trajectory say. Nothing from the morning briefing alone, nothing again from a message already recorded.", in: true,
+        why: "On 7 November, the agent took the briefing for news and updated a prospect from it. Nothing outside the Trajectory shows that." },
+      { s: "Ask only what blocks the write: new or existing prospect, and the follow-up date.", in: false,
+        why: "One question too many delays one note, and Paul sees it. It stays in the Context." },
+      { s: "Any extra line goes on its own line, under “Recorded:”.", in: false,
+        why: "Format. A slip shows in the chat." },
+    ];
+    const NEED = CANDS.filter((c) => c.in).length;
+    const box = $("#spec-cands"), countEl = $("#spec-count"), check = $("#spec-check"), reset = $("#spec-reset"), draft = $("#spec-draft"), out = $("#spec-out");
+    let done = false;
+    const items = CANDS.map((c, i) => {
+      const body = h("span", {}, h("span", { class: "what", text: c.s }));
+      const b = h("button", { type: "button", class: "choice", "aria-pressed": "false" }, h("span", { class: "tk", text: String(i + 1) }), body);
+      b.addEventListener("click", () => {
+        if (done) return;
+        b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true"));
+        update();
+      });
+      box.append(b);
+      return { b, body, c };
+    });
+    const picked = (x) => x.b.getAttribute("aria-pressed") === "true";
+    function update() {
+      const n = items.filter(picked).length;
+      countEl.textContent = done ? "" : `${n} of ${NEED} chosen`;
+      check.disabled = done || n !== NEED;
+    }
+    check.addEventListener("click", () => {
+      done = true;
+      let right = 0;
+      items.forEach((x) => {
+        const on = picked(x);
+        if (on && x.c.in) right++;
+        x.b.classList.add(x.c.in ? "in" : "out");
+        if (on !== x.c.in) x.b.classList.add("wrong");
+        x.b.setAttribute("aria-disabled", "true");
+        x.body.append(h("span", { class: "why" }, h("b", { text: (x.c.in ? "In the spec" : "Left out") + (on === x.c.in ? ". " : on ? ", though you chose it. " : ", and you left it out. ") }), x.c.why));
+      });
+      out.hidden = false;
+      out.className = "result " + (right === NEED ? "good" : "");
+      out.textContent = `You chose ${right} of the ${NEED} in the draft below. Three reasons kept the others out: a slip that shows at a glance, an Opinion the Harness already enforces, or one that code can check without a Judge.`;
+      draft.hidden = false;
+      update();
+    });
+    reset.addEventListener("click", () => {
+      done = false;
+      items.forEach((x) => {
+        x.b.className = "choice";
+        x.b.setAttribute("aria-pressed", "false");
+        x.b.removeAttribute("aria-disabled");
+        $$(".why", x.body).forEach((w) => w.remove());
+      });
+      out.hidden = true; draft.hidden = true;
+      update();
+    });
+    update();
+  })();
+
+  /* =================== CH 16b: judge six Trajectories of the day =================== */
+  (() => {
+    // steps: [text, isEvidence]
+    const TRAJ = [
+      { c: "11:22 · a new bakery", ans: "held", ev: "One search for the business named in the message, before the only write.", steps: [
+        ["Paul: “Le Fournil de Sarcelles, bakery on rue du Chardon… With EDF until June 2027”", 0],
+        ["search_prospects(“Le Fournil de Sarcelles”): ten rows, the best at 0.50, none of them this bakery", 1],
+        ["upsert_prospect with an empty id: a new row", 0],
+        ["Answered “Recorded: Le Fournil de Sarcelles.”", 0]] },
+      { c: "12:03 · the crêperie", ans: "violated", ev: "No search in this Trajectory. The id appears only in the list returned at 11:12 for “Bar tabac le balto”, where this row scored 0.13.", steps: [
+        ["Paul: “Crêperie Ty Breizh: the owner is interested, he'll give me his bill on Friday”", 0],
+        ["upsert_prospect with the id of the crêperie", 1],
+        ["Answered “Recorded: Crêperie Ty Breizh”", 0]] },
+      { c: "12:16 · a date for Le Balto", ans: "na", ev: "Paul is answering the agent's own question about this prospect. The entry leaves that out.", steps: [
+        ["Earlier, the agent had asked Paul for a follow-up date for Bar tabac Le Balto", 1],
+        ["Paul: “Le Balto: Thursday”", 0],
+        ["upsert_prospect with the id of the row created at 11:19", 0],
+        ["Answered “Recorded: Bar tabac Le Balto”", 0]] },
+      { c: "12:06 · a correction", ans: "violated", ev: "The message names a business the agent hadn't searched for, and the search came after the writes.", steps: [
+        ["Paul: “No, sorry, not the crêperie, it was the caterer, Saveurs d'Asie”", 0],
+        ["upsert_prospect on the caterer and on the crêperie, sent together", 1],
+        ["search_prospects, after the writes", 1],
+        ["Answered “Recorded: Traiteur Saveurs d'Asie”", 0]] },
+      { c: "17:10 · three notes at once", ans: "held", ev: "Three searches, one per business, before anything else. Nothing was written.", steps: [
+        ["Paul, within ten seconds: a cheese shop, a bistro, a tobacconist by the station", 0],
+        ["Three calls to search_prospects, one per business: best scores 0.22, 0.10 and 0.69", 1],
+        ["No write", 0],
+        ["Answered with one question per business", 0]] },
+      { c: "10:11 · an answer by number", ans: "violated", ev: "As the entry is written: the message mentions a prospect, and the write came before the search.",
+        gap: "But the Context also says that a number gives the id through the briefing. Read together, the two Opinions disagree, and a Judge shouldn't have to guess. Settle it, then write it into the entry: an answer by number either needs a search, or goes under “Doesn't apply”.", steps: [
+        ["At the top of the Trajectory: the 8:00 briefing and its numbering. Number 5 is Supérette Marché Plus", 0],
+        ["Paul: “5: saw the brother, he wants an offer, back on Wednesday with it”", 0],
+        ["upsert_prospect with the id the briefing gives for number 5", 1],
+        ["search_prospects(“Supérette Marché Plus”), after the write", 1],
+        ["Answered “Recorded: Supérette Marché Plus”", 0]] },
+    ];
+    const box = $("#cjudge-cards"), score = $("#cjudge-score"), sumEl = $("#cjudge-sum");
+    const answers = {};
+    function update() {
+      const done = Object.keys(answers).length;
+      const agree = TRAJ.filter((t, i) => answers[i] === t.ans).length;
+      score.textContent = done ? `You agree with the Judge on ${agree} of ${done} so far.` : "No results given yet.";
+      if (done === TRAJ.length) {
+        const n = (r) => TRAJ.filter((t) => t.ans === r).length;
+        sumEl.hidden = false;
+        sumEl.innerHTML = "";
+        sumEl.append(h("b", { text: `Where the entry applied, it held in ${n("held")} of ${TRAJ.length - n("na")} Trajectories.` }),
+          " One result also showed a gap in the entry itself. None of the six needed an expected row.");
+      }
+    }
+    TRAJ.forEach((t, i) => {
+      const list = h("ol", { class: "path" }, t.steps.map(([s]) => h("li", { text: s })));
+      const btns = h("div", { class: "rbtns", role: "group", "aria-label": `Your result for the Trajectory of ${t.c}` });
+      const out = h("div", { class: "jres", hidden: "" });
+      ["na", "held", "violated"].forEach((r) => {
+        const b = h("button", { type: "button", class: "rbtn", "aria-pressed": "false", text: cap(RES3[r][1]) });
+        b.addEventListener("click", () => {
+          answers[i] = r;
+          $$(".rbtn", btns).forEach((x) => { x.disabled = true; x.setAttribute("aria-pressed", String(x === b)); });
+          $$("li", list).forEach((li, j) => { if (t.steps[j][1]) li.classList.add("off"); });
+          out.hidden = false;
+          out.append(
+            h("span", {}, "Judge: ", h("span", { class: "pill " + RES3[t.ans][0], text: RES3[t.ans][1] })),
+            h("span", { class: "ev", text: `“${t.ev}”` }),
+            ...(t.gap ? [h("span", { class: "gap", text: t.gap })] : []),
+            h("span", { class: "you", text: r === t.ans ? "You agree." : `You said ${RES3[r][1]}.` }));
+          update();
+        });
+        btns.append(b);
+      });
+      box.append(h("div", { class: "tcard" },
+        h("div", { class: "hd" }, h("b", { text: t.c }), h("span", { class: "mono", text: `${i + 1} of ${TRAJ.length}` })),
+        list, btns, out));
+    });
+    update();
+  })();
+
+  /* =================== CH 17: five findings, three ways to check =================== */
+  (() => {
+    const WAYS = { sim: "A Simulation", fork: "A Fork", tool: "The tool itself" };
+    const CHOSE = { sim: "a Simulation", fork: "a Fork", tool: "the tool itself" };
+    const FINDS = [
+      { s: "16:12. “Send the offer” was recorded as “offer sent”.", a: "sim",
+        why: "One decision, taken from words. The message, the row and the standing instructions are all a helper needs. If it writes “offer sent” too, it reproduces. Add the two sentences chosen on 10 November and ask again. Then try “he's going to sign” and “I sent her the offer yesterday”, which must land on opposite sides." },
+      { s: "From 11:39, ids were taken from old lists of search results.", a: "fork",
+        why: "This Behavior came from what had piled up in the thread: eleven Trajectories and three long lists. A helper told about it in a paragraph isn't in that Situation. A Fork taken just before 11:39 is, and it can try the two chosen changes one at a time: the filter alone, then the rewritten Opinion alone." },
+      { s: "17:20. Three prospects created at once ended up on one line.", a: "tool",
+        why: "No decision went wrong. Each call was right and the Harness lost two of them, so there is nothing to ask the agent. Call the tool three times at once and count the rows. The pilot did just that for notes, on 9 November." },
+      { s: "11:12 and 11:22. The same Situation got a question, then a creation.", a: "sim",
+        why: "The worry is consistency, so the check is repetition: the same two messages, several helpers each, before and after the rewritten Opinion. Twenty tries cost a few model calls. Twenty Forks would rebuild the register twenty times." },
+      { s: "A phone number starting with +33 turned into an error in the register.", a: "tool",
+        why: "The tool rewrote a row, and the spreadsheet read the “+” at the start of the number as the start of a formula. The agent decided nothing here. Write such a value through the tool, and read the cell back." },
+    ];
+    const box = $("#finds-list"), score = $("#finds-score"), sumEl = $("#finds-sum");
+    const answers = {};
+    function update() {
+      const done = Object.keys(answers).length;
+      const agree = FINDS.filter((f, i) => answers[i] === f.a).length;
+      score.textContent = done ? `${agree} of ${done} so far.` : "For each finding, choose where you would check a fix first.";
+      if (done === FINDS.length) {
+        sumEl.hidden = false;
+        sumEl.innerHTML = "";
+        sumEl.append(h("b", { text: "Two of the five are about the Harness alone, and need no agent to check." }),
+          " Of the three about decisions, two fit a Simulation, which the pilot can do today. One needs a Fork, which this Harness can't do yet.");
+      }
+    }
+    FINDS.forEach((f, i) => {
+      const btns = h("div", { class: "rbtns", role: "group", "aria-label": `Where to check finding ${i + 1}` });
+      const out = h("div", { class: "jres", hidden: "" });
+      Object.entries(WAYS).forEach(([k, label]) => {
+        const b = h("button", { type: "button", class: "rbtn", "aria-pressed": "false", text: label });
+        b.addEventListener("click", () => {
+          answers[i] = k;
+          $$(".rbtn", btns).forEach((x) => { x.disabled = true; x.setAttribute("aria-pressed", String(x === b)); });
+          out.hidden = false;
+          out.append(
+            h("span", {}, "First check: ", h("span", { class: "pill " + (f.a === "tool" ? "na" : "ok"), text: WAYS[f.a] })),
+            h("span", { text: f.why }),
+            h("span", { class: "you", text: k === f.a ? "You agree." : `You chose ${CHOSE[k]}.` }));
+          update();
+        });
+        btns.append(b);
+      });
+      box.append(h("div", { class: "tcard" },
+        h("div", { class: "hd" }, h("b", { text: f.s }), h("span", { class: "mono", text: `${i + 1} of ${FINDS.length}` })),
+        btns, out));
+    });
+    update();
+  })();
+
+  /* =================== CH 18a: who notices, and when =================== */
+  (() => {
+    const WATCHERS = ["⚠️ on Paul's message, and an email", "The 8:15 briefing check", "The server monitor", "Paul, reading the answer", "The builder, opening the Trajectory"];
+    const SEES = { yes: ["ok", "notices"], no: ["no", "silent"], maybe: ["mid", "maybe"] };
+    // w: one [verdict, when or why] per watcher, in the order above. j: the nightly Judge of the proposal.
+    const FAILS = [
+      { s: "A note arrives and its Trajectory fails: Auxilia can't be reached, or a voice note can't be read",
+        w: [["yes", "Within minutes. ⚠️ replaces ✅, Paul reads “Not recorded for now, Alexandre is on it, nothing to resend”, and the builder gets a link to play it again."], ["no", ""], ["maybe", "Only if the whole server is down."], ["yes", "He sees the ⚠️."], ["no", "There is nothing to open."]],
+        j: ["no", "Nothing to read: the agent never finished."],
+        sum: "The Harness stopped, and the Harness says so. Covered today." },
+      { s: "No briefing leaves at 8:00",
+        w: [["no", "The briefing starts inside Auxilia, outside the entry workflow."], ["yes", "At 8:15, by email. It looks for one thing: a briefing sent since midnight."], ["maybe", "Only if the whole server is down."], ["maybe", "If he notices a quiet morning."], ["no", ""]],
+        j: ["no", "Nothing to read."],
+        sum: "Covered today, by a check on the result instead of on each step that leads to it." },
+      { s: "Three prospects created at once land on one line, and every tool call answers “done” (9 Nov, 17:20)",
+        w: [["no", "The Trajectory ended normally. No alert went out."], ["no", ""], ["no", ""], ["maybe", "The answer said two notes couldn't be recorded. It was half wrong, and it asked him to send them again."], ["yes", "This is how it was found."]],
+        j: ["yes", "Entry 5, reports only what was written: violated. Flagged that evening."],
+        sum: "Found because the builder read every Trajectory of the scripted day. Chosen since: new rows are added in one step, and a tool that fails sends the builder an email." },
+      { s: "“Send the offer” is recorded as “offer sent” (9 Nov, 16:12)",
+        w: [["no", ""], ["no", ""], ["no", ""], ["no", "The answer said “Recorded: Coiffure Élégance SARL”, and that was true. He would find out on Friday, when the briefing told him to chase an offer that never left."], ["maybe", "If he opens that one."]],
+        j: ["yes", "Entry 4, plans and facts apart: violated. Flagged that evening."],
+        sum: "The row is wrong and every check of the Harness is green. Paul finds out four days later, in his briefing." },
+      { s: "An id is taken from an old list, and it is the right prospect (seven times on 9 Nov)",
+        w: [["no", ""], ["no", ""], ["no", ""], ["no", "The answer and the row are right."], ["maybe", "Only by reading how the agent got there."]],
+        j: ["yes", "Entry 1, searches before it decides: violated, each time."],
+        sum: "Nothing is wrong yet, so nothing outside the Trajectory can show it." },
+      { s: "An id is taken from an old list, and it is the wrong prospect (not seen so far)",
+        w: [["no", ""], ["no", ""], ["no", ""], ["maybe", "If the name after “Recorded:” surprises him. Otherwise the wrong prospect turns up in a later briefing."], ["maybe", "If he happens to open that one."]],
+        j: ["yes", "Entry 1 was already violated on the days it went right. The flag comes before the wrong row."],
+        sum: "The Behavior breaks before the outcome does. That gap is the time a Judge buys." },
+    ];
+    const box = $("#watch-fails"), info = $("#watch-info"), sum = $("#watch-sum");
+    let sel = 3;
+    const btns = FAILS.map((f, i) => {
+      const b = h("button", { type: "button", class: "choice", "aria-pressed": "false" }, h("span", { class: "tk", text: "ABCDEF"[i] }), h("span", { class: "what", text: f.s }));
+      b.addEventListener("click", () => { sel = i; render(); });
+      box.append(b);
+      return b;
+    });
+    const row = (name, [v, when], prop) => h("div", { class: "wrow" + (prop ? " prop" : "") },
+      h("span", { class: "wn", text: name }), h("span", { class: "pill " + SEES[v][0], text: SEES[v][1] }),
+      when ? h("span", { class: "ww", text: when }) : null);
+    function render() {
+      const f = FAILS[sel];
+      btns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === sel)));
+      info.innerHTML = "";
+      info.append(
+        h("span", { class: "eyebrow", text: "Who notices" }),
+        h("div", { class: "watch" }, f.w.map((w, i) => row(WATCHERS[i], w))),
+        h("span", { class: "eyebrow", text: "Proposal" }),
+        h("div", { class: "watch" }, row("A Judge reading the thread each evening", f.j, true)));
+      sum.textContent = f.sum;
+    }
+    render();
+  })();
+
+  /* =================== CH 18b: what the agents are trusted with =================== */
+  (() => {
+    const EVID = ["One scripted day", "Four weeks, entries holding", "A season", "A year"];
+    const MSG = [
+      "Today the agents have one scripted day behind them. They get one user and one register, and every Trajectory is read.",
+      "Four weeks of entries holding earn two things: lighter review of Paul's notes, and more users.",
+      "With a season of evidence, the agents take on work where a mistake loses a client.",
+      "After a year, the agents prepare work that leaves the agency. A person still signs.",
+    ];
+    // from: the stage at which this work starts. rev: review at each stage.
+    const RUNGS = [
+      { w: "Paul's visit notes and his morning briefing", from: 0, risk: "If it's wrong: a row to correct by hand.",
+        rev: ["every Trajectory read by the builder", "flagged Trajectories, and a few picked at random", "flagged Trajectories only", "flagged Trajectories only"] },
+      { w: "The same entry for the sales reps who work under Paul", from: 1, risk: "If it's wrong: mistakes in a register several people rely on. One agent and one set of Opinions for all, so every rep's notes are filed the same way.",
+        rev: [null, "every Trajectory of a rep's first weeks", "flagged Trajectories, and a few picked at random", "flagged Trajectories only"] },
+      { w: "Follow-ups when a client's contract nears its end", from: 2, risk: "If it's wrong: a client lost, where before it was a prospect. New entries in the spec.",
+        rev: [null, null, "the agent drafts, a person reads and sends", "the agent drafts, a person sends after a quick look"] },
+      { w: "Proposals with a savings figure, sent to the prospect", from: 3, risk: "If it's wrong: a false figure under the agency's name. The figure is computed by code, never by the model: an Opinion for the Harness to enforce.",
+        rev: [null, null, null, "a person signs off every proposal"] },
+    ];
+    const box = $("#ladder-ev"), ladder = $("#ladder-rungs"), msg = $("#ladder-msg");
+    EVID.forEach((e, i) => {
+      const attrs = { type: "radio", name: "le", id: "le" + i, value: String(i) };
+      if (i === 0) attrs.checked = "";
+      box.append(h("input", attrs), h("label", { for: "le" + i, text: e }));
+    });
+    function render() {
+      const k = +$('input[name="le"]:checked').value;
+      ladder.innerHTML = "";
+      RUNGS.slice().reverse().forEach((r) => {
+        const open = r.from <= k;
+        ladder.append(h("div", { class: "rung" + (r.from === k ? " on" : open ? " live" : "") },
+          h("span", { class: "lv", text: open ? `Review now · ${r.rev[k]}` : "Not yet" }),
+          h("span", { text: r.w }),
+          h("span", { class: "sub", text: r.risk })));
+      });
+      msg.textContent = MSG[k];
+    }
+    box.addEventListener("change", render);
+    render();
+  })();
+
   /* =================== Checks (quiz) =================== */
   const QUIZ = {
     q0: [
@@ -2425,6 +3632,65 @@ dialog.gloss::backdrop { background: rgba(10, 16, 12, 0.45); }
         a: 0, why: "The Behavior spec keeps checking what matters while the method is left more and more to the model." },
     ],
   };
+  // Case study, chapters 12 to 18.
+  Object.assign(QUIZ, {
+    q12: [
+      { q: "Paul never sets up the agent. Where did the Steering burden go?",
+        o: ["Nowhere: a good enough model doesn't need steering.", "To the builder, who carries it once, in the Harness and the Context, for every user.", "To Paul, who has to word his notes with care."],
+        a: 1, why: "Someone still decides what the agent reads and when it works. The pilot puts that in one place, so the user only says what happened." },
+      { q: "Which of these is part of the Harness?",
+        o: ["The 45 seconds of silence that turn several messages into one Trajectory.", "Paul's way of dictating notes between two visits.", "What the model learned in training."],
+        a: 0, why: "The Harness is the software around the model. It decides when the agent works and what it reads, and grouping messages changes both." },
+    ],
+    q13: [
+      { q: "The Context says to leave unknown fields empty, and the agent keeps sending \"\" anyway. What did the pilot do?",
+        o: ["Repeated the sentence, more firmly.", "Changed the tool so that \"\" counts as empty.", "Moved to a larger model."],
+        a: 1, why: "Where code can enforce an Opinion, it holds on every Trajectory, whatever the model does. Words in the Context only make a Behavior more likely." },
+      { q: "Which of these Opinions can't be handed to code?",
+        o: ["Dates are written year-month-day.", "The id of a new prospect comes from the tool.", "A plan (“send the offer”) is not recorded as a fact (“offer sent”)."],
+        a: 2, why: "Telling a plan from a fact takes judgment about a sentence. It has to live in the Context, so it can break, so it belongs in the Behavior spec." },
+    ],
+    q14: [
+      { q: "Ten Trajectories skipped the search, or searched late, and still picked the right prospect. What do the Outcome evals say about them?",
+        o: ["That the search tool is faulty.", "Nothing: the reply and the row were as expected.", "That the model should be replaced."],
+        a: 1, why: "An Outcome eval sees the result only. How the agent got there came to light because someone read the Trajectories." },
+      { q: "Why does that matter more from Paul's first day?",
+        o: ["His messages come with no Ground truth, so Behaviors are what is left to check.", "Real notes are shorter than scripted ones.", "The model changes once real users arrive."],
+        a: 0, why: "Nobody writes the expected row for a real note. Whether a Behavior held can still be read off every Trajectory." },
+    ],
+    q15: [
+      { q: "The standing instructions said to search first. Why did the agent stop?",
+        o: ["It lost the instruction.", "By late morning the thread listed almost every prospect with its id, so the whole Context made reuse the easy path.", "The search tool had stopped working."],
+        a: 1, why: "What tools return and what earlier Trajectories left behind are Context too. One sentence was up against twenty-two ids in plain sight." },
+      { q: "Two changes aimed at the same Behavior ship together, and the Behavior holds. What is still unknown?",
+        o: ["Nothing: it holds.", "Which change did the work, and so which one to protect when the Context changes again.", "Whether the model was the cause."],
+        a: 1, why: "A Fork taken just before 11:39 could try each change alone. Without it, both have to be kept and neither is understood." },
+    ],
+    q16: [
+      { q: "“No emoji in the reply” is one of the agent's Opinions. Why leave it out of the Behavior spec?",
+        o: ["Because it is a poor Opinion.", "Because a slip shows at a glance and costs little. The spec keeps what matters most.", "Because a Judge can't spot an emoji."],
+        a: 1, why: "A spec that lists everything repeats the Context. Keep it for Behaviors whose failure is costly and hard to see." },
+      { q: "Paul answers the briefing by number, and the agent writes without searching. The entry doesn't say whether that counts. What now?",
+        o: ["The Judge decides each time, as seems fair.", "The team settles it once, and writes it under Applies or Doesn't apply.", "The entry is dropped."],
+        a: 1, why: "An entry is an Opinion too. If the Judge has to guess, its results change from one evening to the next." },
+    ],
+    q17: [
+      { q: "Three rows created at once landed on one line. Why is neither a Fork nor a Simulation the right check?",
+        o: ["Both cost too much.", "No decision went wrong. The defect is in the Harness, so the check is on the tool itself.", "A model can't be asked about spreadsheets."],
+        a: 1, why: "Forks and Simulations look into decisions. When each decision was right and the result is still wrong, look at the code that carried it out." },
+      { q: "What makes a Simulation possible today for “offer sent”?",
+        o: ["The agent's Context is already kept in files, and the decision depends on words alone.", "Auxilia can copy a thread from any step.", "The register is saved every night."],
+        a: 0, why: "A helper needs the Context exactly as the agent reads it, and a Situation it can be told in full. Both are at hand." },
+    ],
+    q18: [
+      { q: "On 9 November, three new prospects collapsed into one row and no alert went out. Why?",
+        o: ["The alert email was down.", "The alerts watch for a workflow that fails. Every tool call answered “done”, and the Trajectory ended normally.", "Alerts were off for the scripted day."],
+        a: 1, why: "The pilot's alerts tell whether the Harness ran. What the agent decided, and what the tools really did, shows only inside the Trajectory." },
+      { q: "Why would a Judge each evening matter more once other sales reps send notes too?",
+        o: ["There will be more Trajectories than one person can read, and one spec checks them all the same way.", "The model slows down with more users.", "Each sales rep will need a spec of their own."],
+        a: 0, why: "Shared Opinions let a single spec cover every user. Reading everything stops scaling long before the agent does." },
+    ],
+  });
   $$("[data-quiz]").forEach((box) => {
     const items = QUIZ[box.dataset.quiz];
     box.append(h("span", { class: "eyebrow", text: "Check yourself" }));
